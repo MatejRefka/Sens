@@ -1,0 +1,130 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Sens">
+    
+    <!-- Window Panel -->
+    
+    <Color x:Key="windowPanelBackground">#000000</Color>
+    <SolidColorBrush x:Key="windowPanelBackgroundBrush" Color="{StaticResource windowPanelBackground}"/>
+
+    <Color x:Key="windowPanelIcons">#aaaaaa</Color>
+    <SolidColorBrush x:Key="windowPanelIconsBrush" Color="{StaticResource windowPanelIcons}"/>
+
+    <Color x:Key="windowPanelBorder">#181818</Color>
+    <SolidColorBrush x:Key="windowPanelBorderBrush" Color="{StaticResource windowPanelBorder}"/>
+
+    <Color x:Key="closeButtonBackground">#cd1a2b</Color>
+    <SolidColorBrush x:Key="closeButtonBackgroundBrush" Color="{StaticResource closeButtonBackground}"/>
+
+    <Color x:Key="panelButtonBackgroundHover">#121212</Color>
+    <SolidColorBrush x:Key="panelButtonBackgroundHoverBrush" Color="{StaticResource panelButtonBackgroundHover}"/>
+
+    <!-- Main Content -General-->
+
+    <Color x:Key="mainContentBackground">#000000</Color>
+    <SolidColorBrush x:Key="mainContentBackgroundBrush" Color="{StaticResource mainContentBackground}"/>
+    
+    <Color x:Key="defaultButtons">#777777</Color>
+    <SolidColorBrush x:Key="defaultButtonsBrush" Color="{StaticResource defaultButtons}"/>
+
+    <Color x:Key="secondaryBackground">#131516</Color>
+    <SolidColorBrush x:Key="secondaryBackgroundBrush" Color="{StaticResource secondaryBackground}"/>
+
+    <!-- NewsFeed pages-->
+
+    <Color x:Key="newsDate">#373D3F</Color>
+    <SolidColorBrush x:Key="newsDateBrush" Color="{StaticResource newsDate}"/>
+
+    <Color x:Key="newsTitle">#DADEDF</Color>
+    <SolidColorBrush x:Key="newsTitleBrush" Color="{StaticResource newsTitle}"/>
+
+    <Color x:Key="newsText">#A7AFB2</Color>
+    <SolidColorBrush x:Key="newsTextBrush" Color="{StaticResource newsText}"/>
+
+    <Color x:Key="newsButtons">#A7AFB2</Color>
+    <SolidColorBrush x:Key="newsButtonsBrush"  Color="{StaticResource newsButtons}"/>
+
+    <!-- Side Panel -->
+
+    <Color x:Key="sidePanelBackground">#000000</Color>
+    <SolidColorBrush x:Key="sidePanelBackgroundBrush" Color="{StaticResource sidePanelBackground}"/>
+
+    <!-- Cool shades of gray, Reference: https://www.viget.com/articles/shades-of-gray-yes-really/ -->
+    
+    <Color x:Key="two">#D4D4D4</Color>
+    <SolidColorBrush x:Key="twoBrush" Color="{StaticResource two}"/>
+    
+    <Color x:Key="three">#B8B8B8</Color>
+    <SolidColorBrush x:Key="threeBrush" Color="{StaticResource three}"/>
+
+    <Color x:Key="four">#9C9C9C</Color>
+    <SolidColorBrush x:Key="fourBrush" Color="{StaticResource four}"/>
+    
+    <Color x:Key="five">#7F7F7F</Color>
+    <SolidColorBrush x:Key="fiveBrush" Color="{StaticResource five}"/>
+    
+    <Color x:Key="six">#636363</Color>
+    <SolidColorBrush x:Key="sixBrush" Color="{StaticResource six}"/>
+    
+    <Color x:Key="seven">#474747</Color>
+    <SolidColorBrush x:Key="sevenBrush" Color="{StaticResource seven}"/>
+    
+    <Color x:Key="eight">#2B2B2B</Color>
+    <SolidColorBrush x:Key="eightBrush" Color="{StaticResource eight}"/>
+
+    <Color x:Key="nine">#0F0F0F</Color>
+    <SolidColorBrush x:Key="nineBrush" Color="{StaticResource nine}"/>
+
+    <!-- Cyan Colors-->
+    <Color x:Key="darkCyan">#357376</Color>
+    <SolidColorBrush x:Key="darkCyanBrush" Color="{StaticResource darkCyan}"/>
+    
+    <Color x:Key="hoverOverCyan">#40e0d0</Color>
+    <SolidColorBrush x:Key="hoverOverCyanBrush" Color="{StaticResource hoverOverCyan}"/>
+
+    <Color x:Key="buttonDarkCyan">#0E7C7B</Color>
+    <SolidColorBrush x:Key="buttonDarkCyanBrush" Color="{StaticResource buttonDarkCyan}"/>
+
+    <Color x:Key="buttonLightCyan">#24EFF2</Color>
+    <SolidColorBrush x:Key="buttonLightCyanBrush" Color="{StaticResource buttonLightCyan}"/>
+
+    <Color x:Key="buttonCyan">#08a4a7</Color>
+    <SolidColorBrush x:Key="buttonCyanBrush" Color="{StaticResource buttonCyan}"/>
+
+
+    <!-- My Profile Colors -->
+    <Color x:Key="hoverOverClose">#E32B12</Color>
+    <SolidColorBrush x:Key="hoverOverCloseBrush" Color="{StaticResource hoverOverClose}"/>
+
+    <!-- Speed Dial Theme -->
+    <Color x:Key="speedDial1">#91ffff</Color>
+    <SolidColorBrush x:Key="speedDial1Brush" Color="{StaticResource speedDial1}"/>
+
+    <Color x:Key="speedDial2">#08a4a7</Color>
+    <SolidColorBrush x:Key="speedDial2Brush" Color="{StaticResource speedDial2}"/>
+
+    <Color x:Key="speedDial3">#e9ffff</Color>
+    <SolidColorBrush x:Key="speedDial3Brush" Color="{StaticResource speedDial3}"/>
+
+    <Color x:Key="speedDial4">#4dfed1</Color>
+    <SolidColorBrush x:Key="speedDial4Brush" Color="{StaticResource speedDial4}"/>
+
+    <Color x:Key="speedDial5">#0bdbb6</Color>
+    <SolidColorBrush x:Key="speedDial5Brush" Color="{StaticResource speedDial5}"/>
+
+    <Color x:Key="speedDial6">#91ffff</Color>
+    <SolidColorBrush x:Key="speedDial6Brush" Color="{StaticResource speedDial6}"/>
+
+    <Color x:Key="speedDial7">#08a4a7</Color>
+    <SolidColorBrush x:Key="speedDial7Brush" Color="{StaticResource speedDial7}"/>
+
+    <Color x:Key="speedDial8">#e9ffff</Color>
+    <SolidColorBrush x:Key="speedDial8Brush" Color="{StaticResource speedDial8}"/>
+
+    <Color x:Key="speedDial9">#0bdbb6</Color>
+    <SolidColorBrush x:Key="speedDial9Brush" Color="{StaticResource speedDial9}"/>
+
+    
+
+    
+</ResourceDictionary>

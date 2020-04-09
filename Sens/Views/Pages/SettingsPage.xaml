@@ -1,0 +1,177 @@
+﻿<Page x:Class="Sens.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sens.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SettingsPage">
+
+    <Grid Background="{StaticResource mainContentBackgroundBrush}">
+        
+        <!-- Grid setup for content border and content-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Main content border-->
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1 1 1 1" CornerRadius="5"/>
+
+        <Grid Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*"/>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.35*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/> <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="1.1*"/>
+                    <RowDefinition Height="0.6*"/> <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/> <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/> <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2.2*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBlock Text="EMAIL (OPTIONAL)" Style="{StaticResource calculatorText}" Padding="0 0 0 5"/>
+                </Viewbox>
+
+                <Viewbox Grid.Row="3" HorizontalAlignment="Left">
+                    <TextBox Width="302" Style="{StaticResource EditableCalculatorBox}" FontSize="16" Padding="1 3 0 3" MaxLength="50"
+                             Text="{Binding UserEmail}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="2"/>
+                                <Setter Property="Padding" Value="0 1 0 1"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Viewbox>
+
+                <Viewbox Grid.Row="5" HorizontalAlignment="Left">
+                    <TextBlock Text="AUTO-LAUNCH" Style="{StaticResource calculatorText}" Padding="0 0 0 5"/>
+                </Viewbox>
+
+                <StackPanel Grid.Row="7" Orientation="Horizontal">
+                    <Viewbox>
+                        <RadioButton Margin="0 3 3 9" IsChecked="{Binding Launch1}" Command="{Binding StartupControl}"/>
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock Text="Open on Startup" Style="{StaticResource calculatorText}" Padding="0 0 0 7"/>
+                    </Viewbox>
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="8" Orientation="Horizontal">
+                    <Viewbox>
+                        <RadioButton Margin="0 3 3 9" IsChecked="{Binding Launch2}" Command="{Binding StartupControl}"/>
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock Text="Minimize on Startup" Style="{StaticResource calculatorText}" Padding="0 0 0 7"/>
+                    </Viewbox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="9" Orientation="Horizontal">
+                    <Viewbox>
+                        <RadioButton Margin="0 3 3 9" IsChecked="{Binding Launch3}" Command="{Binding StartupControl}"/>
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock Text="Do not open on Startup" Style="{StaticResource calculatorText}" Padding="0 0 0 7"/>
+                    </Viewbox>
+                </StackPanel>
+                
+            </Grid>
+
+            <Grid Grid.Column="3">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <!--SPACE-->
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2.6*"/>
+                </Grid.RowDefinitions>
+
+
+                <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBlock Text="UPDATES" Style="{StaticResource calculatorText}" Padding="0 0 0 5"/>
+                </Viewbox>
+                
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <Viewbox>
+                        <CheckBox Style="{StaticResource defaultCheckBox}" Margin="0 3 0 8" IsChecked="{Binding AutoUpdate}"/>
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock Text="Update Automatically" Style="{StaticResource calculatorText}" Padding="0 0 0 7"/>
+                    </Viewbox>
+                </StackPanel>
+
+                <Viewbox Grid.Row="5" HorizontalAlignment="Left">
+                    <TextBlock Text="DATA COLLECTION" Style="{StaticResource calculatorText}" Padding="0 0 0 5"/>
+                </Viewbox>
+
+                <StackPanel Grid.Row="7" Orientation="Horizontal">
+                    <Viewbox>
+                        <CheckBox Style="{StaticResource defaultCheckBox}" Margin="0 3 0 8" IsChecked="{Binding DataCollection}"/>
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock Text="Share profile information" Style="{StaticResource calculatorText}" Padding="0 0 0 7"/>
+                    </Viewbox>
+                </StackPanel>
+
+                <Viewbox Grid.Row="8" HorizontalAlignment="Left">
+                    <TextBlock Text="* Anonymised (email address not collected)," Style="{StaticResource calculatorText}" Padding="0 0 0 2"/>
+                </Viewbox>
+
+                <Viewbox Grid.Row="9" HorizontalAlignment="Left">
+                    <TextBlock Text="  non-commercial use only." Style="{StaticResource calculatorText}" Padding="0 0 0 2"/>
+                </Viewbox>
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

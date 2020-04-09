@@ -1,0 +1,437 @@
+﻿<Window x:Class="Sens.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sens"
+        xmlns:local1="clr-namespace:Sens.ValueConverters"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        MinWidth="1067"
+        MinHeight="600"
+        x:Name="AppWindow"
+        Icon="Images/logo/pepega32.ico"
+        Title="Pepega" FontFamily="{StaticResource KanitThin}" Height="600" Width="1067">
+
+    <!--==-->
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        
+                        <!-- Outer Border for drop shadow -->
+                        <Border Padding="{Binding OuterMarginThickness, FallbackValue=10}">
+
+                            <!-- Main window (grid) -->
+                            <Grid>
+
+                                <!-- Opacity Mask for Borders -->
+                                <Border x:Name="Container" 
+                                        Background="{StaticResource windowPanelBorderBrush}"
+                                        CornerRadius="{Binding EdgeCornerRadius, FallbackValue=5}">
+                                </Border>
+                                                                                            
+                                <!-- Main window border -->
+                                <Border CornerRadius="{Binding EdgeCornerRadius, FallbackValue=5}"
+                                        Background="{Binding windowPanelBorderBrush, FallbackValue=#000102}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.3"/>
+                                    </Border.Effect>
+                                </Border>
+                          <!-- Main window content (panel, etc.) -->
+                                <Grid>
+                                    
+                                    <!--Corner Clippinng -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+
+                                    </Grid.OpacityMask>
+                                    
+                                    
+                                    <Grid.RowDefinitions>
+                                       
+                                        <!-- Panel -->
+                                        <RowDefinition Height="{Binding PanelHeightGridLengt, FallbackValue=32}"/>
+                                       
+                                        <!-- Panel-lower border-->
+                                        <RowDefinition Height="Auto"/>
+                                        
+                                        <!-- Main content-->
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+
+                                   <!-- CAPTION BAR -->
+                                    <Grid Grid.Column="0" Panel.ZIndex="1">
+
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Icon-->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!--Title-->
+                                            <ColumnDefinition Width="100"/>
+                                            <!--White space between title and buttons-->
+                                            <ColumnDefinition Width="*"/>
+                                            <!--Window Buttons-->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border Name="PanelIcon" BorderThickness="0" Padding="4">
+                                            <Image Source="/Images/logo/pepega48.png"/>
+                                        </Border>
+
+                                        
+                                            <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="{Binding windowIconPanelIconsBrush, FallbackValue=#aaaaaa}" 
+                                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=Pepega}" FontFamily="{StaticResource KanitThin}">
+                                            </TextBlock>
+                                        
+
+                                        <StackPanel Grid.Column="3" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource PanelButtons}" Content="_"/>
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource PanelButtons}" Content="[]"/>
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}" Content="X" />
+
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!--PANEL LOWER BORDER-->
+                                    <Border Grid.Row="1"
+                                            Height="1" 
+                                            BorderThickness="0 1 0 0" 
+                                            BorderBrush="{StaticResource windowPanelBorderBrush}">
+                                    </Border>
+
+                                    <Border Grid.Row="2" Background="{StaticResource windowPanelBackgroundBrush}">
+
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    
+    
+    <!-- main window functions -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            ResizeBorderThickness="{Binding ResizeBorderThickness, FallbackValue=1}" 
+            CaptionHeight="{Binding CaptionHeight}"
+            GlassFrameThickness="0"
+            CornerRadius="1"
+            />
+    </WindowChrome.WindowChrome>
+    
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- navigation bar + page content-->
+        <Grid Grid.Column="0" Background="{StaticResource mainContentBackgroundBrush}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <!-- navigation bar, margin(top) controls the default text size inside of the viewbox-->
+            <Grid Grid.Row="0" Margin="0 17 0 0">
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Viewbox Grid.Column="1" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                    <Button Content="Home"  Command="{Binding HomeNavCommand}" Style="{StaticResource HomeButton}"
+                            Foreground="{Binding HomeButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterHomeCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveHomeCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Button>
+                </Viewbox>
+                
+                <Viewbox Grid.Column="3" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Content="Calculator" Command="{Binding CalculatorNavCommand}" Style="{StaticResource CalculatorButton}"
+                            Foreground="{Binding CalculatorButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterCalculatorCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveCalculatorCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Button>
+                </Viewbox>
+                
+                <Viewbox Grid.Column="5" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Content="My Profiles" Command="{Binding MyProfilesNavCommand}"
+                        Style="{StaticResource MyProfilesButton}"
+                        Foreground="{Binding MyProfilesButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterMyProfilesCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveMyProfilesCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Button>
+                </Viewbox>
+                
+                <Viewbox Grid.Column="7" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Content="Tutorials" Command="{Binding TutorialsNavCommand}"
+                        Style="{StaticResource TutorialsButton}"
+                        Foreground="{Binding TutorialsButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterTutorialsCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveTutorialsCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Button>
+                </Viewbox>
+                
+                <Viewbox Grid.Column="9" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button x:Name="SettingsNavButton" Command="{Binding SettingsNavCommand}"
+                    Content="Settings" Style="{StaticResource SettingsButton}" 
+                    Foreground="{Binding SettingsButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterSettingsCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveSettingsCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </Button>
+                </Viewbox>
+                
+                <Viewbox Grid.Column="11" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Content="Feedback" Command="{Binding FeedbackNavCommand}"
+                        Style="{StaticResource FeedbackButton}" 
+                        Foreground="{Binding FeedbackButtonForeground, FallbackValue={StaticResource defaultButtonsBrush}}">
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding MouseEnterFeedbackCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeave" >
+                                <i:InvokeCommandAction Command="{Binding MouseLeaveFeedbackCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+ 
+                    </Button>
+                </Viewbox>
+
+            </Grid>
+            
+            <!-- Page -->
+            <Frame Grid.Row="1" x:Name="PageFrame" NavigationUIVisibility="Hidden" 
+                   Content="{Binding CurrentPage, Converter={local1:ApplicationPageValueConverter}}" />
+
+        </Grid>
+
+        <!-- side panel -->
+        <Grid Grid.Column="1" Background="{StaticResource sidePanelBackgroundBrush}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="{StaticResource windowPanelBorderBrush}"/>
+
+            <Grid Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="*"/> <!--SYSTEM  INFORMATION-->
+                        <RowDefinition Height="0"/> <!--___________________-->
+                        <RowDefinition Height="*"/> <!--Pepega Version 1.0.0.1-->
+                        <RowDefinition Height="*"/> <!--Latest Update: 24/3/2020-->
+                        <RowDefinition Height="*"/> <!--Application File Size: 20MB-->
+                        <RowDefinition Height="*"/> <!--Average Process Memory: 125MB-->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/> <!--COOL GLOBAL STATS-->
+                        <RowDefinition Height="0"/> <!--___________________________-->
+                        <RowDefinition Height="*"/> <!--Average Sensitivity: N/A-->
+                        <RowDefinition Height="*"/> <!--Average DPI: N/A-->
+                        <RowDefinition Height="*"/> <!--Most converted game: N/A-->
+                        <RowDefinition Height="*"/> <!--Number of all profiles: N/A-->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/> <!--SPECIAL THANKS TO-->
+                        <RowDefinition Height="0"/> <!--_______________________-->
+                        <RowDefinition Height="*"/> <!--@AngelSixUK-->
+                        <RowDefinition Height="*"/> <!--@JasonES2-->
+                        <RowDefinition Height="*"/> <!--Swagamcpimpdaddy#8741-->
+                        <RowDefinition Height="*"/> <!--@2Eggsss-->
+                        <RowDefinition Height="*"/> <!--@HiRezSupport-->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/> <!--CONTACT-->
+                        <RowDefinition Height="0"/> <!--_________________________-->
+                        <RowDefinition Height="*"/> <!--matejrefka@googlemail.com-->
+                        <RowDefinition Height="*"/> <!--DMs Open @PhrozenYogurt-->
+                        <RowDefinition Height="*"/> <!--github.com/MatejRefka-->
+                        <RowDefinition Height="2*"/> 
+                        <RowDefinition Height="0.8*"/> <!-- C 2020 Matej Refka-->
+                        <RowDefinition Height="0.7*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- SECTION 1 -->
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                        <TextBlock Text="SYSTEM INFORMATION" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource sevenBrush}"  Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Grid Grid.Row="2" Background="{StaticResource fiveBrush}"/>
+                    
+                    <Viewbox Grid.Row="3" HorizontalAlignment="Left">
+                        <TextBlock Text="Pepega Version 1.0.0" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="4" HorizontalAlignment="Left">
+                        <TextBlock Text="Latest Update: 7/4/2020" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="5" HorizontalAlignment="Left">
+                        <TextBlock Text="Application File Size: 44MB" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="6" HorizontalAlignment="Left">
+                        <TextBlock Text="Idle Memory Use: 32MB" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+
+                    <!-- SECTION 2 -->
+                    <Viewbox Grid.Row="8" HorizontalAlignment="Left">
+                        <TextBlock Text="COOL GLOBAL STATS" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource sevenBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Grid Grid.Row="9" Background="{StaticResource fiveBrush}"/>
+                    <Viewbox Grid.Row="10" HorizontalAlignment="Left">
+                        <TextBlock Text="Average Sensitivity: n/a" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="11" HorizontalAlignment="Left">
+                        <TextBlock Text="Average DPI: n/a" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="12" HorizontalAlignment="Left">
+                        <TextBlock Text="Most converted game: n/a" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="13" HorizontalAlignment="Left">
+                        <TextBlock Text="Number of profiles: n/a" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+
+                    <!-- SECTION 3 -->
+                    <Viewbox Grid.Row="15" HorizontalAlignment="Left">
+                        <TextBlock Text="SPECIAL THANKS TO" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource sevenBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Grid Grid.Row="16" Background="{StaticResource fiveBrush}"/>
+                    <Viewbox Grid.Row="17" HorizontalAlignment="Left">
+                        <TextBlock Text="@AngelSixUK" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="18" HorizontalAlignment="Left">
+                        <TextBlock Text="@JasonES2" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="19" HorizontalAlignment="Left">
+                        <TextBlock Text="@Joe_Swiftie" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="20" HorizontalAlignment="Left">
+                        <TextBlock Text="@2Eggsss" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="21" HorizontalAlignment="Left">
+                        <TextBlock Text="@HiRezSupport" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+
+                    <!-- SECTION 4 -->
+                    <Viewbox Grid.Row="23" HorizontalAlignment="Left">
+                        <TextBlock Text="CONTACT" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource sevenBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Grid Grid.Row="24" Background="{StaticResource fiveBrush}"/>
+                    <Viewbox Grid.Row="25" HorizontalAlignment="Left">
+                        <TextBlock Text="matejrefka@gmail.com" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="26" HorizontalAlignment="Left">
+                        <TextBlock Text="DMs Open @PhrozenYogurt" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="27" HorizontalAlignment="Left">
+                        <TextBlock Text="github.com/MatejRefka" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
+                    </Viewbox>
+
+                    <Viewbox Grid.Row="29">
+                        <TextBlock Text="© 2020 Matej Refka" Style="{StaticResource calculatorText}" 
+                                   Foreground="{StaticResource fourBrush}"/>
+                    </Viewbox>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+           
+    </Grid>
+    
+</Window>

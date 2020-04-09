@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sens", "Sens\Sens.csproj", "{EF0F5A0C-BA89-4FE5-9092-2F4BF4CC2560}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18510707-5B44-40E6-9C24-53C286CED8A8}"
+	ProjectSection(SolutionItems) = preProject
+		Sens\WindowResizer.cs = Sens\WindowResizer.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF0F5A0C-BA89-4FE5-9092-2F4BF4CC2560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0F5A0C-BA89-4FE5-9092-2F4BF4CC2560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0F5A0C-BA89-4FE5-9092-2F4BF4CC2560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0F5A0C-BA89-4FE5-9092-2F4BF4CC2560}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BA2BFF9-6198-4EC2-A1EB-D8ABB2B9195C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Sens">
+
+    <!--titles-->
+    <FontFamily x:Key="KanitSemiBold">pack://application;,,,/Fonts/#Kanit SemiBold</FontFamily>
+    <FontFamily x:Key="KanitBold">pack://application;,,,/Fonts/#Kanit Bold</FontFamily>
+    <!--regular text-->
+    <FontFamily x:Key="KanitThin">pack://application;,,,/Fonts/#Kanit Thin</FontFamily>
+    <FontFamily x:Key="KanitRegular">pack://application;,,,/Fonts/#Kanit Regular</FontFamily>
+    <FontFamily x:Key="KanitMedium">pack://application;,,,/Fonts/#Kanit Medium</FontFamily>
+    <FontFamily x:Key="KanitLight">pack://application;,,,/Fonts/#Kanit Light</FontFamily>
+    <FontFamily x:Key="KanitExtraLight">pack://application;,,,/Fonts/#Kanit Extralight</FontFamily>
+    <FontFamily x:Key="KanitLightItalic">pack://application;,,,/Fonts/#Kanit Light Italic</FontFamily>
+    <!--Nav buttons-->
+    <FontFamily x:Key="PaperCutoutNav">pack://application;,,,/Fonts/#Paper Cutout</FontFamily>
+    
+    <!--button text??-->
+    <FontFamily x:Key="LatoThin">pack://appliction;,,,/Fonts/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LatoRegular">pack://appliction;,,,/Fonts/#Lato Regular</FontFamily>
+
+   
+
+
+</ResourceDictionary>
+    
+    
+    
+    
+    

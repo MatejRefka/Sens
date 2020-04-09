@@ -1,0 +1,420 @@
+﻿<Page x:Class="Sens.Pages.TutorialsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sens.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TutorialsPage">
+
+    <Grid Background="Black">
+
+        <!-- Grid setup for content border and content-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Main content border-->
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1 1 1 1" CornerRadius="5"/>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="20 10 5 10">
+            <Grid>
+                <StackPanel>
+                    <Viewbox>
+                        <TextBlock Text="This section aims to provide basic information on all the different variables that control mouse sensitivity in games. It will hopefully answer all your questions and ensure you can use this application effectively."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="950" Margin="18 20 0 0"/>
+                    </Viewbox>
+                    <!--0. CONTENTS-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="0. CONTENTS" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 500 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 5 0 0">
+                        <TextBlock Text="1. TERMINOLOGY" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 650 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 0 0 0">
+                        <TextBlock Text="2. WINDOWS SETTINGS" Style="{StaticResource calculatorText}" 
+                                   Padding="0 0 610 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 0 0 0">
+                        <TextBlock Text="3. SENSITIVITY CALCULATOR" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 580 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 0 0 0">
+                        <TextBlock Text="4. MY PROFILES USAGE" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 610 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 0 0 0">
+                        <TextBlock Text="5. FAQ" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 730 0"/>
+                    </Viewbox>
+                    <!--1. TERMINOLOGY-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="1. TERMINOLOGY" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 490 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 5 0 0">
+                        <TextBlock Text="1.1 MOUSE ACCELERATION" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 590 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="A setting where the cursor movement distance depends on how quickly the mouse is physically moved. For example, moving your mouse 5 cm faster will mean the cursor will move further than moving your mouse slower over the same distance."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="1.2 RAW INPUT" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 665 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="A setting where input is taken directly from your mouse and OS settings. Windows acceleration, smoothing, delay or other variables are ignored. &#10;NOTE: It is generally preferable to have raw input on when mouse acceleration is off. It buffers mouse movement independent of frame rate, making it consistent even if your frame rate is spiking up and down."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="1.3 DPI" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 693 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The number of counts that a mouse will send to the OS when physically moved 1 inch. For example, at 800 DPI, the cursor will move 800 pixels for every inch of mouse movement. Correctly referred to as CPI, counts per inch."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="1.4 CM/360 or IN/360" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 610 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The number of centimeters or inches that a physical mouse moves for an in-game character to perform a 360-degree turn. Also known as physical sensitivity, it is the parameter used to translate sensitivities between different games."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <!--2. WINDOWS SETTINGS-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="2. WINDOWS SETTINGS" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 440 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="The Windows mouse speed settings can be found in Settings->Devices->Mouse->Additional Mouse Options->Pointer Options. The window looks like this:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <Image Source="/Images/TutorialsWindowSettings.png" Margin="0 0 450 0" Stretch="UniformToFill"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="2.1 POINTER SPEED" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 655 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The pointer speed is practically a DPI multiplier. For example, a DPI of 800, a multiplier of 1.5 will result the cursor to move 1200 pixels for every inch that a mouse moves. The optimal setting is the default 6/11 as it means a 1:1 tracking ratio (1 count of raw mouse movement = 1 registered count interpreted by the OS). Alternatively, multipliers of how the OS registers physical mouse movement can be applied:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="1/11  = 0.03125 (ok) &#10;2/11  = 0.0625 (ok) &#10;3/11  = 0.25 (ok) &#10;4/11  = 0.5 (ok) &#10;5/11  = 0.75 (inconsistent) &#10;6/11  = 1.0 (optimal setting) &#10;7/11  = 1.5 (inconsistent + pixel skipping) &#10;8/11  = 2.0 (pixel skipping) &#10;9/11  = 2.5 (inconsistent + pixel skipping) &#10;10/11 = 3.0 (pixel skipping) &#10;11/11  = 3.5 (inconsistent + pixel skipping)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="NOTE: Having in-game raw input on will automatically use Windows 6/11, anything else is ignored."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="2.2 ENHANCED POINTER PRECISION" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 535 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The enhanced pointer precision is practically mouse acceleration in Windows. Setting raw input-on within any game will overwrite the Windows mouse acceleration. For example, you can have raw input in CS:GO but when you tab out you can have mouse acceleration in Windows."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <!--3. SENSITIVITY CALCULATOR-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="3. SENSITIVITY CALCULATOR" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 390 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 5 0 0">
+                        <TextBlock Text="3.1 CALCULATORS" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 650 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The first '3D to 3D' game sensitivity calculator converts sensitivity between games set in a 3D environment. It uses physical sensitivity, measured in in/360 or cm/360 to convert between the two. This is the length that a mouse must travel in a horizontal line for your in-game character to make a 360-degree turn."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="The second '3D to 2D' sensitivity calculator is based on a horizontal measurement from one side of the monitor to the other, measured in inches/cm. To match the in game raw sensitivity you will need to adjust the calculated DPI in a 2D environment. This is because most 2D environments don't have accurate enough 'sensitivity' options."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="3.2 CALCULATIONS" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 640 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The following formula is used to calculate inches per 360-degree turn:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="in/360 = 360/(game sensitivity * DPI * yaw), "
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="where: &#10;Mouse yaw is a multiplier applied to in-game sensitivity which then controls the sensitivity of horizontal movement (sensitivity when moving the mouse left/right). Most games have a predefined yaw value, for example, all source games have m_yaw=0.022 set as default. In rare instances, some games have the yaw variable replaced by some magical unknown function instead, which is then used to calculate the in/360."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+
+                    <!--4. MY PROFILES USAGE-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="4. MY PROFILES USAGE" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 435 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="To begin with, you can click on the big 'plus' button to open the Custom Profile settings. Alternatively, if you already have a profile, you can edit it like so:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <Image Source="/Images/TutorialsCustomProfile.png" Margin="0 0 300 0" Stretch="UniformToFill"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.1 PROFILE NAME" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 560 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Title describing a profile. (optional)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.2 BACKGROUND" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 645 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The background picture applied to a profile. The supported image extensions: .jpg, .jpeg, .tif, .tiff and .png. (optional)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.3 HOTKEY: CTRL+" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 630 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="A hotkey combination of a modifier (CTRL) plus a virtual key (user defined) that converts and then applies a specified sensitivity across different games. (optional) The following user defined virtual keys are supported:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Grid Margin="18 0 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Margin="20 5 0 0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="BACKSPACE &#10;ENTER &#10;TAB &#10;CAPS &#10;SPACE &#10;PAGEUP &#10;PAGEDOWN &#10;END &#10;HOME &#10;INSERT &#10;DELETE &#10;LEFT &#10;UP &#10;RIGHT &#10;DOWN"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="130"/>
+                        </Viewbox>
+                        <Viewbox Margin="20 5 0 0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="A &#10;B &#10;C &#10;D &#10;E &#10;F &#10;G &#10;H &#10;I &#10;J &#10;K &#10;L &#10;M "
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="130"/>
+                        </Viewbox>
+                        <Viewbox Margin="20 5 0 0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="N &#10;O &#10;P &#10;Q &#10;R &#10;S &#10;T &#10;U &#10;V &#10;X &#10;Y &#10;Z"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="130"/>
+                        </Viewbox>
+                        <Viewbox Margin="20 5 0 0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="0 &#10;1 &#10;2 &#10;3 &#10;4 &#10;5 &#10;6 &#10;7 &#10;8 &#10;9"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="130"/>
+                        </Viewbox>
+                        <Viewbox Margin="20 5 0 0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="* &#10;+ &#10;- &#10;/ &#10;= &#10;, &#10;. &#10;\ &#10;[ &#10;] &#10;; "
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="130"/>
+                        </Viewbox>
+                    </Grid>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="(optional)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.4 SENSITIVITY FROM" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 610 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The base game from which you would like to convert your sensitivity. (required)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.5 SENSITIVITY" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 650 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The sensitivity of the base game. Each game has a preset range of sensitivity values with their maximum decimal places (d.p) available. These limits (inclusive) are as follows:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+
+                    <Grid Margin="18 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0" BorderBrush="{StaticResource twoBrush}" BorderThickness="1 1 0 0"/>
+                        <Border Grid.Column="1" Grid.Row="0" BorderBrush="{StaticResource twoBrush}" BorderThickness="1 1 0 0"/>
+                        <Border Grid.Column="2" Grid.Row="0" BorderBrush="{StaticResource twoBrush}" BorderThickness="1 1 1 0"/>
+                        <Border Grid.Column="0" Grid.Row="1" BorderBrush="{StaticResource twoBrush}" BorderThickness="1"/>
+                        <Border Grid.Column="1" Grid.Row="1" BorderBrush="{StaticResource twoBrush}" BorderThickness="0 1 0 1"/>
+                        <Border Grid.Column="2" Grid.Row="1" BorderBrush="{StaticResource twoBrush}" BorderThickness="1"/>
+
+                        <Viewbox Grid.Column="0" Grid.Row="0" Margin="0 0 0 0">
+                            <TextBlock Text="Game" Style="{StaticResource calculatorText}" Padding="10 0 210 0"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" Grid.Row="0" Margin="0 0 0 0">
+                            <TextBlock Text="Sensitivity Range" Style="{StaticResource calculatorText}" Padding="10 0 125 0"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="2" Grid.Row="0" Margin="0 0 0 0">
+                            <TextBlock Text="d.p" Style="{StaticResource calculatorText}" Padding="10 0 100 0"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="Apex Legends &#10;CS:GO &#10;CS: 1.6 &#10;CS: Source &#10;G-mod &#10;Half Life 2 &#10;Left 4 Dead 2 &#10;Minecraft &#10;Paladins &#10;Portal 2 &#10;Quake Live &#10;Rust &#10;Smite &#10;Team Fortress 2"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="250" Margin="10 5 0 5"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="0.2 - 20.0 &#10;0.00 - 8.00 &#10;0.2 - 20.0 &#10;0.10 - 6.00 &#10;0.10 - 6.00 &#10;0.10 - 6.00 &#10;1.000 - 20.000 &#10;1 - 199 &#10;1.0 - 100.0 &#10;1.000000 - 20.000000 &#10;0.01 - 30.00 &#10;0.0 - 2.0 &#10;1 - 100 &#10;0.10 - 6.00"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="250" Margin="10 5 0 5"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <TextBlock Text="1 &#10;2 &#10;1 &#10;2 &#10;2 &#10;2 &#10;3 &#10;0 &#10;1 &#10;6 &#10;2 &#10;1 &#10;0 &#10;2"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="110" Margin="20 5 0 5"/>
+                        </Viewbox>
+                    </Grid>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="(required)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.6 DPI" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 720 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Your mouse DPI value. This value is restricted to a range of 1-16000 because anything higher is just unreasonable xD. (required)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.7 APPLY TO THESE GAMES" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 580 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="The games that this sensitivity is applied to. (optional)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.8 LOAD CONFIG FILE" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 615 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Choose a custom profile configuration file that will fill out all these profile fields automatically. Extension must be .txt. (optional)"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.9 APPLY" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 695 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Converts the base game sensitivity into all the ticked games. It then overwrites the sensitivity value in each of the games' config files with the newly calculated sensitivity. In this early version, the config file path is fixed and for each game it is the default:"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="Apex Legends: C:\Users\XYZ\Saved Games\Respawn\Apex\local\settings.cfg 
+                                        &#10;CSGO: C:\Program Files (x86)\Steam\userdata\XYZ\730\local\cfg\config.cfg
+                                        &#10;CS16: C:\Program Files(x86)\Steam\steamapps\common\Half - Life\cstrike\config.cfg
+                                        &#10;CSS: C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Source\cstrike\cfg\config.cfg
+                                        &#10;GMOD: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\config.cfg
+                                        &#10;HL2: C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\hl2\cfg\config.cfg
+                                        &#10;L4D2: C:\Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2\left4dead2\cfg\config.cfg
+                                        &#10;MINECRaFT: C:\Users\XYZ\AppData\Roaming\.minecraft\options.txt
+                                        &#10;Paladins: C:\Users\XYZ\Documents\My Games\Paladins\ChaosGame\Config\ChaosInput.ini
+                                        &#10;Portal 2: C:\Program Files (x86)\Steam\steamapps\common\Portal 2\update\cfg\config.cfg
+                                        &#10;Quake: C:\Program Files (x86)\Steam\SteamApps\common\Quake Live\XYZ\baseq3\qzconfig.cfg
+                                        &#10;Rust: C:\Program Files (x86)\Steam\steamapps\common\Rust\cfg\client.cfg
+                                        &#10;Smite: C:\Users\XYZ\Documents\My Games\Smite\BattleGame\Config\BattleInput.ini
+                                        &#10;TF2: C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\tf\cfg\config.cfg"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 5 0 0">
+                        <TextBlock Text="...where XYZ is a user or account. If some config file cannot be found in this specific location, then the sensitivity will not be applied. This function will trigger either on clicking 'Apply' or by using your defined hotkey."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="4.10 EMAIL" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 690 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Converts the selected profile into its own config file which is then sent to your email address (you can set this in the settings). This can be used as a backup for your profiles or you can use this with 'Load config' to transfer your profiles between 2 computers."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <!--FAQ-->
+                    <Viewbox HorizontalAlignment="Left" Margin="18 10 0 0">
+                        <TextBlock Text="5. FAQ" Style="{StaticResource calculatorText}" Foreground="White" 
+                                   TextDecorations="Underline" Padding="0 0 550 0"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.1 Does changing the FOV or aspect ratio affect my sensitivity?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 310 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Nope. Increasing your FOV may make it look slower because there's less perceived movement in the periphery, however the in/360 will be the same and therefore your sensitivity as well."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.2 Does every game have the same mouse acceleration as the Windows enhanced pointer speed?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 75 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="No. Every game can have different mouse acceleration speeds which will inherently differ from the Windows mouse acceleration. Because of these inconsistencies, most people prefer raw input when it comes to competitive gaming."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.3 Why can't I apply my sensitivity to Fortnite/Overwatch or Warframe?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 260 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="Because they don't have a local config file that contains the sensitivity variable. These settings are stored on their own servers for some very stupid reason."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.4 What is this data sharing option in the settings?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 390 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="It's about collection your profile information (sensitivity, DPI, etc.). Fully anonymized, its sole purpose is to show users some cool stats, located on the side panel. At this moment, it is not implemented as it's low on the priority list. I'm also not sure if it's a 100% morally acceptable functionality as big data is a polarizing discussion topic in the cs community atm."
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.5 Where is the application (.exe) location?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 460 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 0">
+                        <TextBlock Text="C:\Users\matej\AppData\Local\SensRelease\Sens.exe"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    <Viewbox HorizontalAlignment="Left" Margin="18 8 0 0">
+                        <TextBlock Text="5.6 Is there a bitcoin miner hidden in this application that will destroy my graphics card?" Style="{StaticResource calculatorText}"
+                                   Padding="0 0 140 0"/>
+                    </Viewbox>
+                    <Viewbox Margin="18 0 0 20">
+                        <TextBlock Text="No. If you would like an application with a hidden bitcoin miner however, you can download the ESEA client at https://play.esea.net/index.php?s=downloads. 😊"
+                                   Style="{StaticResource calculatorText}" TextWrapping="Wrap" Width="912"/>
+                    </Viewbox>
+                    
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+
+    </Grid>
+</Page>

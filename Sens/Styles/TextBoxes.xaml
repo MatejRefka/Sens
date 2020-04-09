@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Sens">
+
+
+    <!-- Calculator TextBox Uneditable -->
+    <Style TargetType="TextBox" x:Key="UneditableCalculatorBox">
+        <Setter Property="Background" Value="{StaticResource sevenBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitLight}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="{StaticResource twoBrush}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="SelectionBrush" Value="Turquoise"/>
+        <Setter Property="SelectionOpacity" Value="0.6"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+    </Style>
+
+    <!-- Calculator TextBox Editable-->
+    <Style TargetType="TextBox" BasedOn="{StaticResource UneditableCalculatorBox}" x:Key="EditableCalculatorBox">
+        <Setter Property="Background" Value="{StaticResource twoBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource sevenBrush}"/>
+        <Setter Property="IsReadOnly" Value="False"/>
+
+    </Style>
+
+    <!-- Custom profile Editable -->
+    <Style TargetType="TextBox" x:Key="ProfileBox" BasedOn="{StaticResource EditableCalculatorBox}">
+        <Setter Property="FontSize" Value="17"/>
+    </Style>
+
+</ResourceDictionary>

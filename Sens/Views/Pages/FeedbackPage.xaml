@@ -1,0 +1,194 @@
+﻿<Page x:Class="Sens.Pages.FeedbackPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sens.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FeedbackPage">
+
+    <Grid Background="{StaticResource mainContentBackgroundBrush}">
+
+        <!-- Grid setup for content border and content-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Main content border-->
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1 1 1 1" CornerRadius="5"/>
+
+
+        <!--Grid.Row=0, Grid.Column=1 MAIN CONTENT-->
+
+        <Grid Grid.Column="1" Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*"/>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="0.55*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1.4*"/>
+                </Grid.RowDefinitions>
+
+
+                <Viewbox Grid.Row="1" HorizontalAlignment="Right">
+                    <TextBlock Text="Type:" Style="{StaticResource calculatorText}" Margin="0 4 25 6"/>
+                </Viewbox>
+
+                <Viewbox Grid.Row="3" HorizontalAlignment="Right">
+                    <TextBlock Text="Title:" Style="{StaticResource calculatorText}" Margin="0 4 28 6"/>
+                </Viewbox>
+
+                <Grid Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.2*"/>
+                        <RowDefinition Height="6.8*"/>
+                    </Grid.RowDefinitions>
+                    <Viewbox Grid.Row="0" HorizontalAlignment="Right">
+                        <TextBlock Text="Body:" Style="{StaticResource calculatorText}" Margin="0 0 26 13"/>
+                    </Viewbox>
+                </Grid>
+                
+            </Grid>
+            
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1.4*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="1">
+                    <ComboBox Style="{StaticResource FeedbackComboBox}" ItemsSource="{Binding FeedbackOptions}" MinWidth="450"
+                              SelectedValue="{Binding ComboBoxValue, Mode=TwoWay}" SelectedIndex="1" FontSize="16" Padding= "0 0 0 0">
+                        <!-- styling drop down list on triggers-->
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ComboBoxItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                                            <Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsHighlighted" Value="true">
+                                                    <Setter Property="Background" Value="Turquoise" />
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                    <Setter Property="BorderThickness" Value="1" />
+                                                    <Setter Property="BorderBrush" Value="#357376" />
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextWrapping="WrapWithOverflow" Padding="0 2 0 2"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Viewbox>
+
+                <Viewbox Grid.Row="3">
+                    <TextBox Style="{StaticResource EditableCalculatorBox}" Width="465" FontSize="16" MaxLength="50" Padding="1 3 0 3"
+                             Text="{Binding Subject}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="2"/>
+                                <Setter Property="Padding" Value="1 2 0 1"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Viewbox>
+
+                <Viewbox Grid.Row="5">
+                    <TextBox  Width="510" Height="255" Margin="0 0 0 0" Style="{StaticResource EditableCalculatorBox}" MaxLines="6" MinLines="6" TextWrapping="Wrap"
+                               FontSize="16" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" HorizontalContentAlignment="Left"
+                               VerticalContentAlignment="Top" VerticalAlignment="Stretch" MaxLength="1200" Text="{Binding Body}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="2"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Viewbox>
+
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Viewbox Grid.Column="0">
+                        <CheckBox Style="{StaticResource defaultCheckBox}" Margin="-4 5 0 5" HorizontalAlignment="Left" 
+                                  IsChecked="{Binding AddLogFile}"/>
+                    </Viewbox>
+                    <Viewbox Grid.Column="1" HorizontalAlignment="Left">
+                        <TextBlock Text="Add a Log File" Style="{StaticResource calculatorText}" Padding="0 0 0 0" Margin="-2 3 0 -3" 
+                                   VerticalAlignment="Center" Height="30"/>
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="0">
+                        <Button Content="SUBMIT" Style="{StaticResource CustomProfileSaveCancel}" Margin="-3 0 0 0" Width="100"
+                            Padding="50 20 0 0" FontSize="13" Height="25" Command="{Binding SubmitCommand}" Foreground="Black"/>
+                    </Viewbox>
+                    <Viewbox Grid.Column="1">
+                        <TextBlock x:Name="SubmitText" Text="Thanks for your feedback!!" Style="{StaticResource feedbackFadeOut}"
+                                   Margin="0 4 15 5" Foreground="#458701" FontFamily="{StaticResource KanitExtraLight}"/>
+
+                    </Viewbox>
+                    
+                    
+                </Grid>
+            </Grid>
+
+
+
+    </Grid>
+    </Grid>
+</Page>

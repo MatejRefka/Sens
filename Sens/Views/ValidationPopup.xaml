@@ -1,0 +1,107 @@
+﻿<Window x:Class="Sens.ValidationPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sens"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        x:Name="ValidationPopupWindow"
+        ResizeMode="NoResize"
+        Title="ValidationPopup" Height="150" Width="240">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBroderThickness}" CaptionHeight="{Binding CaptionBarHeight}"
+                      GlassFrameThickness="0" CornerRadius="0"/>
+    </WindowChrome.WindowChrome>
+
+    <!-- Custom Window -->
+    <Window.Resources>
+        <Style TargetType="{x:Type local:ValidationPopup}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- shadow around the window -->
+                        <Border Padding="{Binding OuterWindowMarginThickness}">
+
+                            <Grid>
+
+                                <!-- Opacity mask around the window (to round close button on hover over) -->
+                                <Border x:Name="Container" Background="{StaticResource eightBrush}" CornerRadius="3"/>
+
+                                <!-- Window Border (dropShadow + cornerRadius) -->
+                                <Border CornerRadius="3" Background="{StaticResource eightBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+                                <!-- Inside of the window border -->
+                                <Grid>
+
+                                    <!-- Corner Clipping -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding CaptionBarGridHeight, FallbackValue=26}"/>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- white space and close button -->
+                                    <Grid Grid.Row="0" Panel.ZIndex="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="1" Content="X" Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}"/>
+                                        <TextBlock Grid.Column="0" Text="ERROR" FontFamily="{StaticResource KanitThin}" FontSize="16" 
+                                                   Foreground="{StaticResource windowPanelIconsBrush}" Margin="3 0 0 0"/>
+                                    </Grid>
+
+                                    <!-- Panel Border -->
+                                    <Border Grid.Row="1" BorderThickness="0 0.5 0 0" Height="1" BorderBrush="{StaticResource windowPanelBorderBrush}"/>
+
+                                    <Border Grid.Row="2" Padding="4">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="1.2*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Invalid Sensitivity or DPI Value" Style="{StaticResource calculatorText}" FontSize="15"/>
+
+        <TextBlock Grid.Row="2" Text="For more information, see:" Style="{StaticResource calculatorText}" 
+                       FontFamily="{StaticResource KanitLightItalic}" FontSize="14"/>
+
+        <TextBlock Grid.Row="4" Text="Section 4.5 &amp; 4.6 at Tutorials" Style="{StaticResource calculatorText}" 
+                       FontFamily="{StaticResource KanitLightItalic}" FontSize="14" VerticalAlignment="Top"/>
+        
+        <Button Grid.Row="6" Content="OK" Style="{StaticResource CustomProfileSaveCancel}" Width="140" HorizontalAlignment="Left"
+                Margin="-2 0 0 -2" Command="{Binding ClosePopupCommand}"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Sens">
+
+    <!--NewsFeed Text-->
+    <Style TargetType="TextBlock" x:Key="newsDate">
+        <Setter Property="Foreground" Value="{StaticResource newsDateBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitRegular }"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontSize" Value="12.5"/>
+     </Style>
+
+    <Style TargetType="TextBlock" x:Key="newsTitle">
+        <Setter Property="Foreground" Value="{StaticResource newsTitleBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitSemiBold}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 4 0 2"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="newsText">
+        <Setter Property="Foreground" Value="{StaticResource newsTextBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitRegular}"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
+    <!-- Calculator Text-->
+    <Style TargetType="TextBlock" x:Key="calculatorText">
+        <Setter Property="Foreground" Value="{StaticResource twoBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitLight}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <!-- Fade out feedback Text-->
+    <Style TargetType="TextBlock" x:Key="feedbackFadeOut">
+        <Setter Property="Foreground" Value="Green"/>
+        <Setter Property="FontFamily" Value="{StaticResource KanitSemiBold}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Opacity" Value="0"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding SubmitVisibility}" Value="true">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                Storyboard.TargetProperty="(TextBlock.Opacity)"
+                From="1.0" To="0.0" Duration="0:0:6"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

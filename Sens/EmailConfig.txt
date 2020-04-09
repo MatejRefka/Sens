@@ -1,0 +1,20 @@
+ProfileName #BLABALABLA#.
+Background #BLABALABLA#.
+KeyPressMacro #BLABALABLA#.
+SensitivityFrom #BLABALABLA#.
+Sensitivity #BLABALABLA#.
+DPI #BLABALABLA#.
+Apex Legends #BLABALABLA#.
+CS:GO #BLABALABLA#.
+CS 1.6 #BLABALABLA#.
+CS Source #BLABALABLA#.
+Garry's Mod #BLABALABLA#.
+Half Life 2 #BLABALABLA#.
+Left 4 Dead 2 #BLABALABLA#.
+Minecraft #BLABALABLA#.
+Paladins #BLABALABLA#.
+Quake Live #BLABALABLA#.
+Rust #BLABALABLA#.
+Smite #BLABALABLA#.
+Team Fortress #BLABALABLA#.
+Warframe #BLABALABLA#.

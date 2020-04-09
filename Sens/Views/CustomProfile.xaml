@@ -1,0 +1,349 @@
+﻿<Window x:Class="Sens.CustomProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sens"
+        xmlns:b="clr-namespace:Sens.Utility"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        x:Name="CustomProfileWindow"
+        ResizeMode="NoResize"
+        Title="CustomProfile" Height="590" Width="350">
+
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBroderThickness}" CaptionHeight="{Binding CaptionBarHeight}"
+                      GlassFrameThickness="0" CornerRadius="0"/>
+    </WindowChrome.WindowChrome>
+
+    <!-- Custom Window -->
+    <Window.Resources>
+        <Style TargetType="{x:Type local:CustomProfile}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- shadow around the window -->
+                        <Border Padding="{Binding OuterWindowMarginThickness}">
+
+                            <Grid>
+
+                                <!-- Opacity mask around the window (to round close button on hover over) -->
+                                <Border x:Name="Container" Background="{StaticResource eightBrush}" CornerRadius="{Binding WindowCornerRadius}"/>
+
+                                <!-- Window Border (dropShadow + cornerRadius) -->
+                                <Border CornerRadius="{Binding WindowCornerRadius}" Background="{StaticResource nineBrush}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+                                <!-- Inside of the window border -->
+                                <Grid>
+
+                                    <!-- Corner Clipping -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding CaptionBarGridHeight, FallbackValue=26}"/>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- white space and close button -->
+                                    <Grid Grid.Row="0" Panel.ZIndex="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="1" Content="X" Command="{Binding CloseCommand}" Style="{StaticResource CloseButton}"/>
+                                    </Grid>
+
+                                    <!-- Panel Border -->
+                                    <Border Grid.Row="1" BorderThickness="0 1 0 0" Height="1" BorderBrush="{StaticResource windowPanelBorderBrush}"/>
+
+                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding, FallbackValue=6}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Profile Name" Style="{StaticResource calculatorText}" FontSize="17"/>
+            <TextBox Grid.Column="1" x:Name="profileNameTextBox" Style="{StaticResource ProfileBox}" Margin="0 1 0 1"
+                     Text="{Binding Path=ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                                    ValidatesOnDataErrors=True, NotifyOnValidationError=True}" MaxLength="30"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Background" Style="{StaticResource calculatorText}" FontSize="17"/>
+
+
+            <Button Grid.Column="1" HorizontalContentAlignment="Left" Content="Choose Image           " 
+                    Style="{StaticResource ChooseFile}" Command="{Binding ImageFileCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Hotkey: CTRL+" Style="{StaticResource calculatorText}" FontSize="17"/>
+            <TextBox Grid.Column="1" x:Name="keyPressMacroTextBox" FontSize="17" Style="{StaticResource ProfileBox}" Margin="0 1 0 1"
+                     Text="{Binding Path=ButtonMacro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                                    ValidatesOnDataErrors=True, NotifyOnValidationError=True}" CharacterCasing="Upper" MaxLength="9"/>
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.295*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Sensitivity From" Style="{StaticResource calculatorText}" FontSize="17"/>
+            
+            <ComboBox Grid.Column="1" x:Name="sensitivityFromComboBox" ItemsSource="{Binding GamesCollection}" Style="{StaticResource ProfileComboBox}"
+                      SelectedIndex="1" SelectedValue="{Binding SensitivityFrom, Mode=TwoWay}" Padding="0 -3 0 0">
+                <!-- styling drop down list on triggers-->
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ComboBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                                    <Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsHighlighted" Value="true">
+                                            <Setter Property="Background" Value="Turquoise" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                            <Setter Property="BorderBrush" Value="#357376" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="WrapWithOverflow"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Sensitivity" Style="{StaticResource calculatorText}" FontSize="17"/>
+            <TextBox Grid.Column="1" x:Name="sensitivityTextBox" Style="{StaticResource ProfileBox}" Margin="0 1 0 1"
+                     Text="{Binding Path=Sensitivity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                     ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+        </Grid>
+
+        <Grid Grid.Row="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="DPI" Style="{StaticResource calculatorText}" FontSize="17"/>
+            <TextBox Grid.Column="1" x:Name="dpiTextBox" Style="{StaticResource ProfileBox}" Margin="0 1 0 1"
+                     Text="{Binding Path=DPI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                                    ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+        </Grid>
+
+        <TextBlock Grid.Row="12" Text="Apply to these games:" Style="{StaticResource calculatorText}" FontSize="17"/>
+
+        <Grid Grid.Row="13">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Apex Legends" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="CS:GO" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="apexCheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Apex, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="csgoCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Csgo, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="CS 1.6" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="CS Source" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="cs16CheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Cs16, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="cssCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Css, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Garry's Mod" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Half Life 2" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="gmodCheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Gmod, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="hl2CheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Hl2, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Left 4 Dead 2" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Minecraft" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="l4d2CheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=L4d2, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="minecraftCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Minecraft, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="17">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Paladins" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Portal 2" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="paladinsCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Paladins, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="portalCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Portal2, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="18">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Quake Live" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Rust" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="quakeCheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Quake, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="rustCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Rust, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="19">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Smite" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Team Fortress 2" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+
+            <CheckBox Grid.Column="0" x:Name="smiteCheckBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Smite, Mode=TwoWay}"/>
+            <CheckBox Grid.Column="2" x:Name="tf2CheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource defaultCheckBox}"
+                      IsChecked="{Binding Path=Tf2, Mode=TwoWay}"/>
+        </Grid>
+
+        <Grid Grid.Row="21">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Load config file:" Style="{StaticResource calculatorText}" FontSize="17" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="Choose File" Style="{StaticResource ChooseFile}" Command="{Binding ConfigFileCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="23">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="SAVE" Style="{StaticResource CustomProfileSaveCancel}" Margin="0 0 8 0" Command="{Binding SaveCommand}"/>
+            <Button Grid.Column="1" Content="CANCEL" Style="{StaticResource CustomProfileSaveCancel}" Margin="8 0 0 0" Command="{Binding CloseCommand}"/>
+        </Grid>
+
+    </Grid>
+</Window>
