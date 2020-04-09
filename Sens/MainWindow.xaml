@@ -336,7 +336,7 @@
                     <Grid Grid.Row="2" Background="{StaticResource fiveBrush}"/>
                     
                     <Viewbox Grid.Row="3" HorizontalAlignment="Left">
-                        <TextBlock Text="Pepega Version 1.0.0" Style="{StaticResource calculatorText}" 
+                        <TextBlock Text="Pepega Version 1.0.1" Style="{StaticResource calculatorText}" 
                                    Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
                     </Viewbox>
                     <Viewbox Grid.Row="4" HorizontalAlignment="Left">
