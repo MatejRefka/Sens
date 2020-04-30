@@ -65,7 +65,7 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>logo32.ico</ApplicationIcon>
+    <ApplicationIcon>Images\logo\logo48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -374,7 +374,6 @@
     <Resource Include="Images\homeflowcut.png" />
     <Resource Include="Images\TutorialsCustomProfile.png" />
     <Resource Include="Images\TutorialsWindowSettings.png" />
-    <Resource Include="logo32.ico" />
     <Content Include="ProfilesDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -390,16 +389,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo\sensLogo256x256.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\logo\pepega16.ico" />
-    <Resource Include="Images\logo\pepega16.png" />
-    <Resource Include="Images\logo\pepega256.ico" />
-    <Resource Include="Images\logo\pepega256.png" />
-    <Resource Include="Images\logo\pepega32.ico" />
-    <Resource Include="Images\logo\pepega32.png" />
-    <Resource Include="Images\logo\pepega48.ico" />
-    <Resource Include="Images\logo\pepega48.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo\logo16.png" />
