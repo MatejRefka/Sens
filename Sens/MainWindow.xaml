@@ -14,8 +14,8 @@
         MinWidth="1067"
         MinHeight="600"
         x:Name="AppWindow"
-        Icon="Images/logo/pepega32.ico"
-        Title="Pepega" FontFamily="{StaticResource KanitThin}" Height="600" Width="1067">
+        Icon="Images/logo/logo32.ico"
+        Title="Sens" FontFamily="{StaticResource KanitThin}" Height="600" Width="1067">
 
     <!--==-->
     <Window.Resources>
@@ -81,12 +81,12 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Border Name="PanelIcon" BorderThickness="0" Padding="4">
-                                            <Image Source="/Images/logo/pepega48.png"/>
+                                            <Image Source="/Images/logo/logo32.png"/>
                                         </Border>
 
                                         
                                             <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="{Binding windowIconPanelIconsBrush, FallbackValue=#aaaaaa}" 
-                                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=Pepega}" FontFamily="{StaticResource KanitThin}">
+                                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=Sens}" FontFamily="{StaticResource KanitThin}">
                                             </TextBlock>
                                         
 
@@ -298,7 +298,7 @@
                         <RowDefinition Height="1.5*"/>
                         <RowDefinition Height="*"/> <!--SYSTEM  INFORMATION-->
                         <RowDefinition Height="0"/> <!--___________________-->
-                        <RowDefinition Height="*"/> <!--Pepega Version 1.0.0.1-->
+                        <RowDefinition Height="*"/> <!--Sens Version 1.0.0.1-->
                         <RowDefinition Height="*"/> <!--Latest Update: 24/3/2020-->
                         <RowDefinition Height="*"/> <!--Application File Size: 20MB-->
                         <RowDefinition Height="*"/> <!--Average Process Memory: 125MB-->
@@ -336,7 +336,7 @@
                     <Grid Grid.Row="2" Background="{StaticResource fiveBrush}"/>
                     
                     <Viewbox Grid.Row="3" HorizontalAlignment="Left">
-                        <TextBlock Text="Pepega Version 1.0.1" Style="{StaticResource calculatorText}" 
+                        <TextBlock Text="Sens Version 1.0.1" Style="{StaticResource calculatorText}" 
                                    Foreground="{StaticResource fourBrush}" Margin="5 0 0 0"/>
                     </Viewbox>
                     <Viewbox Grid.Row="4" HorizontalAlignment="Left">
